@@ -1,53 +1,56 @@
 import { useState } from "react";
-import './Formulario'
+import './Formulario.css'
+
+
+
 const Formulario = () => {
 
-     const [nombre, setNombre] = useState("")
-     const [email, setEmail] = useState("");
-     const [contraseña, setContraseña] = useState("")
-     const [confirmacion, setConfirmacion] = useState("")
-     const [error, setError] = useState(true)
+    const [nombre, setNombre] = useState("")
+    const [email, setEmail] = useState("");
+    const [contraseña, setContraseña] = useState("")
+    const [confirmacion, setConfirmacion] = useState("")
+    const [error, setError] = useState(false)
 
     const validarIngreso = (e) => {
-         e.preventdefault();
+        e.preventDefault();
 
-        if (nombre === ''){
-            setError(false);
+        if (nombre === '' || email === '' || contraseña === '' || confirmacion === '') {
+            setError(true);
             return
-         }
-        setError(true)
-     }
-   
+        }
+        setError(false);
+    }
+
+    nombre = useState("")
 
     return (
-        <div className="formulario">
-            
-            <form onSubmit={validarIngreso} className="container text-center">
-               
-                <h2 className="text-center row" >Crear una cuenta</h2>
-                <h3>{nombre}</h3>
-                <div className="container row">
-                    <label className="row ">Nombre</label>
-                    <br/>
-                    <input type="text" className=" 'from-control' row w-auto" placeholder="Nombre"onChange={(e) => setNombre(e.target.value)}/>
+        <div className="text-center">
+            <form onSubmit={validarIngreso}>
+
+                <div className="form-group">
+                    <label >Nombre</label>
+                    <input className=" form-control" type="text" onChange={(e) => setNombre(e.target.value)} />
                 </div>
-                <div className="container row">
-                    <label className="row ">Email</label>
-                    <br/>
-                    <input type="mail" className=" 'from-control' row w-auto" placeholder="Email"onChange={(e) => setEmail(e.target.value)}/>
+
+                <div className="form-group">
+                    <label >Email</label>
+                    <input type="mail" className=" form-control " onChange={(e) => setEmail(e.target.value)} />
                 </div>
-                <div className="container row ">
-                    <label className="row ">Contraseña</label>
-                    <br/>
-                    <input type="text" className=" 'from-control' row w-auto" placeholder="Contraseña"onChange={(e) => setContraseña(e.target.value)}/>
+
+                <div className="form-group ">
+                    <label >Contraseña</label>
+                    <input type="text" className=" form-control " onChange={(e) => setContraseña(e.target.value)} />
                 </div>
-                <div className="container row mb-3">
-                    <label className="row ">Confirmar Contraseña</label>
-                    <br/>
-                    <input type="text" className=" 'from-control' row w-auto" placeholder="Confirmar Contraseña"onChange={(e) => setConfirmacion(e.target.value)}/>
+
+                <div className="form-group mb-3">
+                    <label >Confirmar Contraseña</label>
+                    <input type="text" className=" form-control" onChange={(e) => setConfirmacion(e.target.value)} />
                 </div>
-                <button className="btn btn-warning row rounded-pill px-3" type='submit'>Enviar</button>
-                {error ? <p>ingresa todos los datos</p>: <p>bien</p>}
+
+                <button className="btn btn-warning rounded-pill px-3 mt-2" type="submit">Enviar</button>
+
+                {error ? <p>Completa todos los campos !</p> : null}
+
             </form>
         </div>
     )

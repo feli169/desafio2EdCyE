@@ -1,13 +1,11 @@
-import React from 'react'
+//import React from 'react'
 
-const Alert = () => {
-  return (
-    <div>
-      <h1>
-        hola mundo
-      </h1>
-    </div>
-  )
-}
+//const Alert = () => {
+//   return (
+//     <div>
+     
+//     </div>
+//   )
+// }
 
-export default Alert
+// export default Alert
