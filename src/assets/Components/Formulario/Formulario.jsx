@@ -18,38 +18,41 @@ const Formulario = () => {
             setError(true);
             return
         }
-        setError(false);
+            setError(false)
+            setNombre("");
+            setEmail("");
+            setContraseña("");
+            setConfirmacion("");
     }
-
-    nombre = useState("")
+  
 
     return (
-        <div className="text-center">
+        <div className="container text-center bg-white p-4">
             <form onSubmit={validarIngreso}>
 
-                <div className="form-group">
-                    <label >Nombre</label>
-                    <input className=" form-control" type="text" onChange={(e) => setNombre(e.target.value)} />
-                </div>
-
-                <div className="form-group">
-                    <label >Email</label>
-                    <input type="mail" className=" form-control " onChange={(e) => setEmail(e.target.value)} />
-                </div>
-
-                <div className="form-group ">
-                    <label >Contraseña</label>
-                    <input type="text" className=" form-control " onChange={(e) => setContraseña(e.target.value)} />
+                <div className="form-group mb-3">
+                    {/* <label >Nombre</label> */}
+                    <input placeholder="Nombre" className=" form-control" type="text" onChange={(e) => setNombre(e.target.value)} value={nombre}/>
                 </div>
 
                 <div className="form-group mb-3">
-                    <label >Confirmar Contraseña</label>
-                    <input type="text" className=" form-control" onChange={(e) => setConfirmacion(e.target.value)} />
+                    {/* <label >Email</label> */}
+                    <input placeholder="tuemail@ejemplo.com" type="email" className=" form-control " onChange={(e) => setEmail(e.target.value)} value={email}/>
                 </div>
 
-                <button className="btn btn-warning rounded-pill px-3 mt-2" type="submit">Enviar</button>
+                <div className="form-group mb-3 ">
+                    {/* <label >Contraseña</label> */}
+                    <input placeholder="Contraseña" type="pass" className=" form-control " onChange={(e) => setContraseña(e.target.value)} value={contraseña}/>
+                </div>
 
-                {error ? <p>Completa todos los campos !</p> : null}
+                <div className="form-group mb-3">
+                    {/* <label >Confirmar Contraseña</label> */}
+                    <input placeholder="Confirmar Contraseña" type="pass" className=" form-control" onChange={(e) => setConfirmacion(e.target.value)} value={confirmacion}/>
+                </div>
+
+                <button className="btn btn-dark  px-3 mt-2" type="submit">Registrarse</button>
+
+                {error ? <p className="text-white mt-3">Completa todos los campos !</p> : null}
 
             </form>
         </div>

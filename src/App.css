@@ -1,4 +1,9 @@
 *{
     color: black;
-    background-color: rgb(25, 147, 147);
+    /* background-color: rgb(25, 147, 147); */
+    
+}
+body{
+    background: linear-gradient(rgb(92, 230, 117), blue);
+    height: 100vh;
 }
